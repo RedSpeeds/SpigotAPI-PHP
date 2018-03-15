@@ -13,13 +13,16 @@ require __DIR__ . '/../../vendor/autoload.php';
 
 class HTTPUnitRequest
 {
-    private static $webClient= null;
+    public $webClient= null;
     const useragent = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36";
-    public static function init(){
-        $webClient = new Curl();
+    public function init(){
+        $this->$webClient = new Curl();
         $webClient->setOpt("CURLOPT_CONNECTTIMEOUT_MS",15000);
         $webClient->setOpt("CURLOPT_FOLLOWLOCATION",true);
         $webClient->setUserAgent(self::useragent);
+    }
+    public static function get($url,array $cookies,array $params){
+        we
     }
 
 }
